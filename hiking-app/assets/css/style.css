@@ -1,0 +1,166 @@
+/* =====================================================================
+   assets/css/style.css — ธีม Outdoor / Hiking
+   ===================================================================== */
+:root {
+    --forest: #1E4634;
+    --forest-dark: #12301F;
+    --forest-mid: #2C6A4E;
+    --forest-soft: #D7E5DC;
+    --ground: #F4F5F2;
+    --tile: #F2F4F1;
+    --ink: #17211B;
+    --muted: #5B635E;
+    --line: #E1E4E0;
+    --finish: #9A3412;
+    --finish-dark: #7C2D12;
+    --bottom-nav-h: 64px;
+    --bs-body-font-family: 'IBM Plex Sans Thai', 'Sarabun', 'Noto Sans Thai', system-ui, sans-serif;
+    --bs-body-color: var(--ink);
+    --bs-link-color: var(--forest);
+    --bs-link-color-rgb: 30, 70, 52;
+    --bs-link-hover-color: var(--forest-dark);
+    --bs-link-hover-color-rgb: 18, 48, 31;
+}
+
+body {
+    background: var(--ground);
+    font-family: var(--bs-body-font-family);
+    -webkit-tap-highlight-color: transparent;
+}
+body.has-nav { padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { body.has-nav { padding-bottom: 0; } }
+
+.min-w-0 { min-width: 0; }
+.text-forest { color: var(--forest) !important; }
+
+/* ---------- ปุ่ม ---------- */
+.btn { font-weight: 600; border-radius: 12px; }
+.btn-lg { min-height: 48px; }
+.btn-xl { min-height: 56px; font-size: 1.1rem; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; gap: .4rem; }
+.btn-icon { width: 44px; height: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; }
+.btn-forest { --bs-btn-color: #fff; --bs-btn-bg: var(--forest); --bs-btn-border-color: var(--forest);
+    --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--forest-dark); --bs-btn-hover-border-color: var(--forest-dark);
+    --bs-btn-active-color: #fff; --bs-btn-active-bg: var(--forest-dark); --bs-btn-active-border-color: var(--forest-dark);
+    --bs-btn-disabled-bg: var(--forest); --bs-btn-disabled-border-color: var(--forest); --bs-btn-disabled-color: #fff; }
+.btn-outline-forest { --bs-btn-color: var(--forest); --bs-btn-border-color: var(--forest); --bs-btn-bg: #fff;
+    --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--forest); --bs-btn-hover-border-color: var(--forest);
+    --bs-btn-active-color: #fff; --bs-btn-active-bg: var(--forest-dark); --bs-btn-active-border-color: var(--forest-dark);
+    border-width: 2px; }
+.btn-finish { --bs-btn-color: #fff; --bs-btn-bg: var(--finish); --bs-btn-border-color: var(--finish);
+    --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--finish-dark); --bs-btn-hover-border-color: var(--finish-dark);
+    --bs-btn-active-color: #fff; --bs-btn-active-bg: var(--finish-dark); --bs-btn-active-border-color: var(--finish-dark); }
+.form-control:focus { border-color: var(--forest-mid); box-shadow: 0 0 0 .2rem rgba(30, 70, 52, .2); }
+
+/* ---------- Topbar (desktop) + Bottom nav (mobile) ---------- */
+.app-topbar { background: var(--forest); }
+.app-topbar .navbar-brand { color: #fff; font-weight: 700; }
+.app-topbar .nav-link { color: rgba(255, 255, 255, .78); border-radius: 10px; }
+.app-topbar .nav-link:hover, .app-topbar .nav-link.active { color: #fff; background: rgba(255, 255, 255, .12); }
+
+.bottom-nav {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 1030;
+    height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    background: #fff; border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.bottom-nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+    color: var(--muted); text-decoration: none; font-size: .75rem; }
+.bottom-nav a i { font-size: 1.35rem; }
+.bottom-nav a.active { color: var(--forest); font-weight: 600; }
+
+/* ---------- Auth ---------- */
+.auth-page { background: #fff; }
+.auth-wrap { min-height: 100vh; display: flex; flex-direction: column; }
+.auth-hero { position: relative; background: var(--forest); color: #fff; min-height: 280px; overflow: hidden;
+    display: flex; align-items: flex-end; padding: 0 28px 44px; }
+.auth-hero-sm { min-height: 200px; }
+.auth-mountains { position: absolute; inset: 0; width: 100%; height: 100%; }
+.auth-brand { position: relative; max-width: 440px; margin: 0 auto; width: 100%; }
+.auth-brand h1 { font-size: 1.6rem; font-weight: 700; margin: 0; }
+.auth-brand p { color: var(--forest-soft); margin: .25rem 0 0; }
+.auth-card { position: relative; flex: 1; background: #fff; margin-top: -20px; border-radius: 22px 22px 0 0;
+    padding: 28px; width: 100%; max-width: 496px; align-self: center; }
+@media (min-width: 768px) {
+    .auth-page { background: var(--ground); }
+    .auth-card { flex: none; margin: -40px auto 40px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .08); }
+}
+
+/* ---------- Dashboard ---------- */
+.dash-hero { background: var(--forest); color: #fff; padding: 24px 0 64px; }
+.dash-main { margin-top: -44px; }
+.stat-card { border-radius: 18px; }
+.stat-label { font-size: .78rem; color: var(--muted); }
+.stat-value { font-size: 1.6rem; font-weight: 700; color: var(--forest-dark); line-height: 1.2; }
+.stat-unit { font-size: .78rem; color: var(--muted); }
+.hike-item { display: flex; gap: 14px; align-items: center; background: #fff; border-radius: 16px; padding: 14px;
+    color: var(--ink); text-decoration: none; min-height: 88px; }
+.hike-item:hover { color: var(--ink); box-shadow: 0 4px 14px rgba(0, 0, 0, .06); }
+.hike-item-icon { width: 56px; height: 56px; flex: none; border-radius: 12px; background: #E4EADF; color: var(--forest);
+    display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.empty-state { text-align: center; color: var(--muted); background: #fff; border-radius: 16px; padding: 32px 20px; }
+.empty-state i { font-size: 2.2rem; color: var(--forest-mid); display: block; margin-bottom: .5rem; }
+
+/* ---------- History ---------- */
+.page-head { background: #fff; border-bottom: 1px solid var(--line); padding: 20px 0 14px; }
+.hike-card { border-radius: 16px; }
+
+/* ---------- Tracking ---------- */
+.tracking-page { overflow: hidden; }
+.tracking-layout { position: relative; height: calc(100dvh - var(--bottom-nav-h) - env(safe-area-inset-bottom)); }
+@media (min-width: 768px) { .tracking-layout { height: calc(100dvh - 56px); } }
+.tracking-map { position: absolute; inset: 0; z-index: 0; background: #E4EADF; }
+.map-topbar { position: absolute; top: 12px; left: 12px; right: 12px; z-index: 500; display: flex; align-items: flex-start; gap: 8px; pointer-events: none; }
+.map-topbar > * { pointer-events: auto; }
+.chip { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 16px;
+    background: #fff; font-size: .8rem; font-weight: 600; box-shadow: 0 2px 8px rgba(0, 0, 0, .12); white-space: nowrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.dot-green { background: #15803D; } .dot-amber { background: #B45309; } .dot-red { background: #B91C1C; }
+.dot-gray { background: #9CA3AF; } .dot-white { background: #fff; }
+.rec-badge { position: absolute; top: 56px; left: 12px; z-index: 500; display: inline-flex; align-items: center; gap: 6px;
+    height: 30px; padding: 0 12px; border-radius: 15px; background: var(--forest); color: #fff; font-size: .8rem; font-weight: 600; }
+.rec-badge.paused { background: #92400E; }
+.rec-badge .dot { animation: blink 1.4s infinite; }
+.rec-badge.paused .dot { animation: none; }
+@keyframes blink { 50% { opacity: .25; } }
+.map-controls { position: absolute; right: 12px; top: 96px; z-index: 500; display: flex; flex-direction: column; gap: 8px; }
+.btn-map { width: 44px; height: 44px; border: 0; border-radius: 12px; background: #fff; color: var(--ink);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 1.15rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .14); text-decoration: none; }
+.btn-map:hover { color: var(--forest); }
+.btn-map.active { color: #2563EB; }
+.tracking-sheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 600; background: #fff;
+    border-radius: 22px 22px 0 0; box-shadow: 0 -4px 20px rgba(0, 0, 0, .10); padding: 8px 16px 14px;
+    max-height: 62%; overflow-y: auto; }
+@media (min-width: 768px) {
+    .tracking-sheet { left: 16px; right: auto; bottom: 16px; width: 400px; border-radius: 20px; max-height: calc(100% - 32px); }
+}
+.sheet-handle { width: 40px; height: 4px; border-radius: 2px; background: #D4D8D3; margin: 0 auto 10px; }
+.big-distance { font-size: 2.6rem; font-weight: 700; line-height: 1.05; color: var(--forest-dark); font-variant-numeric: tabular-nums; }
+.big-distance small, .stat-tile-value small { font-size: .55em; font-weight: 600; }
+.big-time { font-size: 1.75rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.stat-grid-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 576px) { .stat-grid-lg { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.stat-tile { background: var(--tile); border-radius: 12px; padding: 8px 12px; }
+.stat-tile-value { font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Marker ตำแหน่งปัจจุบัน */
+.pos-marker { width: 18px; height: 18px; border-radius: 50%; background: #2563EB; border: 3px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.2); }
+.end-marker, .start-marker { width: 22px; height: 22px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.35); }
+.start-marker { background: #15803D; }
+.end-marker { background: var(--finish); }
+
+/* ---------- Detail ---------- */
+.detail-map-wrap { position: relative; height: 46vh; min-height: 280px; }
+.detail-map { position: absolute; inset: 0; background: #E4EADF; }
+.detail-back { position: absolute; top: 12px; left: 12px; z-index: 500; }
+.map-loading { position: absolute; inset: 0; z-index: 450; display: flex; align-items: center; justify-content: center; background: rgba(244, 245, 242, .6); }
+.detail-body { position: relative; z-index: 1; background: var(--ground); border-radius: 22px 22px 0 0; margin-top: -16px; padding-top: 20px; padding-bottom: 24px; }
+.points-table { font-size: .85rem; font-variant-numeric: tabular-nums; }
+.points-table tbody tr { cursor: pointer; }
+.points-table tr.table-active td { background: var(--forest-soft); }
+
+/* Toast */
+.toast-container { z-index: 2000; }
+.leaflet-popup-content { font-family: var(--bs-body-font-family); font-size: .85rem; }
